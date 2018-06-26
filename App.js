@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, StatusBar } from 'react-native';
 import CourseList from './components/CourseList';
-import ModuleList from './components/ModuleList'
-import { createStackNavigator } from 'react-navigation'
-import {Button} from 'react-native-elements'
+import ModuleList from './components/ModuleList';
+import LessonList from './components/LessonList';
+import { createStackNavigator } from 'react-navigation';
+import {Button} from 'react-native-elements';
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -28,7 +29,8 @@ class Home extends React.Component {
 const App = createStackNavigator({
     Home,
     CourseList,
-    ModuleList
+    ModuleList,
+    LessonList
 });
 
 export default App;
