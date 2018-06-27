@@ -2,36 +2,38 @@ import React, {Component} from 'react'
 import {View} from 'react-native'
 import {ListItem} from 'react-native-elements'
 
-class LessonList extends Component {
-    static navigationOptions = {title: 'Lesson List'};
+class TopicList extends Component {
+    static navigationOptions = {title: 'Topic List'};
     constructor(props) {
         super(props);
         this.state = {
-            lessons: [],
+            topics: [],
             courseId: 1,
-            moduleId: 1
+            moduleId: 1,
+            lessonId: 1
         }
     }
     componentDidMount() {
         const {navigation} = this.props;
         const courseId = navigation.getParam("courseId");
         const moduleId = navigation.getParam("moduleId");
-        fetch("https://webdev-summerfull-2018-xma.herokuapp.com/api/course/"+courseId+"/module/"+moduleId+"/lesson")
+        const lessonId = navigation.getParam("lessonId");
+        fetch("https://webdev-summerfull-2018-xma.herokuapp.com/api/course/"+courseId+"/module/"+moduleId+"/lesson/"+lessonId+"/topic")
             .then(response => (response.json()))
-            .then(lessons => this.setState({lessons}))
+            .then(topics => this.setState({topics}))
     }
     render() {
         return(
             <View style={{padding: 15}}>
-                {this.state.lessons.map(
-                    (lesson, index) => (
+                {this.state.topics.map(
+                    (topic, index) => (
                         <ListItem
                             onPress={() => this.props.navigation
-                                .navigate("TopicList", {lessonId: lesson.id})}
+                                .navigate("WidgetList", {topicId: topic.id})}
                             key={index}
-                            title={lesson.title}/>))}
+                            title={topic.title}/>))}
             </View>
         )
     }
 }
-export default LessonList
+export default TopicList

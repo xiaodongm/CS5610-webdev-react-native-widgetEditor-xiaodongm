@@ -3,12 +3,13 @@ import { Text, View, StyleSheet, ScrollView, StatusBar } from 'react-native';
 import CourseList from './components/CourseList';
 import ModuleList from './components/ModuleList';
 import LessonList from './components/LessonList';
+import TopicList from './components/TopicList';
 import { createStackNavigator } from 'react-navigation';
 import {Button} from 'react-native-elements';
 
 class Home extends React.Component {
     static navigationOptions = {
-        title: 'Course Manager: Home'
+        title: 'Home'
     };
     constructor(props) {
         super(props)
@@ -16,7 +17,7 @@ class Home extends React.Component {
       render() {
         return (
           <ScrollView>
-              <StatusBar barStyle='light-content'/>
+              <StatusBar/>
               <Button title="Course List"
                       onPress={() => this.props.navigation
                           .navigate('CourseList') } />
@@ -30,7 +31,8 @@ const App = createStackNavigator({
     Home,
     CourseList,
     ModuleList,
-    LessonList
+    LessonList,
+    TopicList
 });
 
 export default App;
