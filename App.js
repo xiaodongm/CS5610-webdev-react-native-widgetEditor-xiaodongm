@@ -6,6 +6,7 @@ import LessonList from './components/LessonList';
 import TopicList from './components/TopicList';
 import { createStackNavigator } from 'react-navigation';
 import {Button} from 'react-native-elements';
+import WidgetList from "./components/WidgetList";
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -19,6 +20,7 @@ class Home extends React.Component {
           <ScrollView>
               <StatusBar/>
               <Button title="Course List"
+                      buttonStyle={styles.courseListBtn}
                       onPress={() => this.props.navigation
                           .navigate('CourseList') } />
           </ScrollView>
@@ -32,7 +34,8 @@ const App = createStackNavigator({
     CourseList,
     ModuleList,
     LessonList,
-    TopicList
+    TopicList,
+    WidgetList
 });
 
 export default App;
@@ -41,11 +44,17 @@ export default App;
 
 
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    courseListBtn: {
+      backgroundColor: 'blue',
+      borderRadius: 10,
+      marginTop: 30
+    },
+
+});

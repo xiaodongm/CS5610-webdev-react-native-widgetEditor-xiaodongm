@@ -5,16 +5,20 @@ import {ListItem} from 'react-native-elements'
 class CourseList extends Component {
     static navigationOptions = {title: 'Course List'}
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {
+            courses: []
+        }
+    }
+
+    componentDidMount(){
         fetch('https://webdev-summerfull-2018-xma.herokuapp.com/api/course')
             .then(response => (response.json()))
             .then(courses => {
                 this.setState({courses: courses})
             })
-        this.state = {
-            courses: []
-        }
     }
+
     render() {
         return(
             <View style={{padding: 15}}>
