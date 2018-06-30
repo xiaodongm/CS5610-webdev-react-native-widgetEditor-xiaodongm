@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {View, Alert} from 'react-native'
-import {Text, ListItem} from 'react-native-elements'
+import {Button, ListItem} from 'react-native-elements'
 
 class WidgetList extends Component {
     static navigationOptions = {title: 'Widget List'}
@@ -25,6 +25,11 @@ class WidgetList extends Component {
         return(
             <View style={{padding: 15}}>
                 {/*<Text h3>Other Widgets</Text>*/}
+                <Button title="Add Assignment"
+                        buttonStyle={{backgroundColor: 'green', borderRadius: 10}}
+                        onPress={() => this.props.navigation.navigate('AssignmentWidget') }/>
+                <Button title="Add Exam"
+                        buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop : 10}}/>
                 {this.state.widgets.map(
                     (widget, index) => (
                         <ListItem

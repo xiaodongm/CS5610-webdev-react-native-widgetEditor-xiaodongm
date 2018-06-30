@@ -7,6 +7,7 @@ import TopicList from './components/TopicList';
 import { createStackNavigator } from 'react-navigation';
 import {Button} from 'react-native-elements';
 import WidgetList from "./components/WidgetList";
+import AssignmentWidget from './elements/AssignmentWidget'
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -35,7 +36,8 @@ const App = createStackNavigator({
     ModuleList,
     LessonList,
     TopicList,
-    WidgetList
+    WidgetList,
+    AssignmentWidget
 });
 
 export default App;
@@ -58,3 +60,4 @@ const styles = StyleSheet.create({
     },
 
 });
+
