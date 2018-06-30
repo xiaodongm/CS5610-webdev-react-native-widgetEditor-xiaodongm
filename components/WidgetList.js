@@ -1,33 +1,56 @@
 import React, {Component} from 'react'
-import {View, Alert} from 'react-native'
+import {ScrollView, Text} from 'react-native'
 import {Button, ListItem} from 'react-native-elements'
+import AssignmentService from '../services/AssignmentService'
 
 class WidgetList extends Component {
-    static navigationOptions = {title: 'Widget List'}
+    static navigationOptions = {title: 'Widget List'};
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             widgets: [],
-            courseId: 1,
-            moduleId: 1,
-            lessonId: 1,
-            topicId : 1
-        }
+            courseId: '',
+            moduleId: '',
+            lessonId: '',
+            topicId : '',
+            assignment: {
+                title : 'New Assignment',
+                description: '',
+                points:'',
+                widgetType: 'assignment',
+            }
+        };
+        this.assignmentService = AssignmentService.instance;
+        this.createAssignment = this.createAssignment.bind(this);
+
     }
     componentDidMount() {
         const {navigation} = this.props;
-        const topicId = navigation.getParam("topicId")
-        fetch("https://webdev-summerfull-2018-xma.herokuapp.com/api/topic/"+topicId+"/widget")
+        const topicId = navigation.getParam("topicId");
+        this.setState({
+            topicId: topicId
+        });
+        fetch("https://webdev-summerfull-2018-xma.herokuapp.com/api/topic/"+topicId+"/assignment")
             .then(response => (response.json()))
             .then(widgets => this.setState({widgets}))
     }
+
+    createAssignment() {
+        this.assignmentService
+            .createAssignment(this.state.topicId, this.state.assignment);
+    }
+
+
+
     render() {
         return(
-            <View style={{padding: 15}}>
+            <ScrollView style={{padding: 15}}>
                 {/*<Text h3>Other Widgets</Text>*/}
                 <Button title="Add Assignment"
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10}}
-                        onPress={() => this.props.navigation.navigate('AssignmentWidget') }/>
+                        onPress={() =>{ this.createAssignment();
+                        this.props.navigation.navigate('AssignmentWidget') }}
+                        topicId={this.state.topicId}/>
                 <Button title="Add Exam"
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop : 10}}/>
                 {this.state.widgets.map(
@@ -37,8 +60,8 @@ class WidgetList extends Component {
                                 .navigate("QuestionList", {examId: widget.id})}
                             key={index}
                             // subtitle={widget.description}
-                            title={widget.name}/>))}
-            </View>
+                            title={widget.title}/>))}
+            </ScrollView>
         )
     }
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { ScrollView, View, TextInput } from 'react-native';
 import {FormLabel, FormInput, FormValidationMessage, Button, Text} from 'react-native-elements'
+// import AssignmentService from '../services/AssignmentService'
 
 class AssignmentWidget extends Component {
     static navigationOptions = {title: 'AssignmentWidget'};
@@ -9,20 +10,47 @@ class AssignmentWidget extends Component {
         this.state = {
             title: '',
             description: '',
-            points: ''
-        }
+            points: '',
+            widgetType: 'assignment',
+            topicId:''
+        };
+        // this.assignmentService = AssignmentService.instance;
+        // this.createAssignment = this.createAssignment.bind(this);
+        // this.setTopicId = this.setTopicId.bind(this);
+    }
+
+    // componentDidMount() {
+    //     this.setTopicId(this.props.topicId);
+    // }
+
+    componentWillReceiveProps(newProps){
+        this.setTopicId(newProps.topicId);
+    }
+
+    setTopicId(topicId) {
+        this.setState({topicId: topicId});
     }
 
     updateForm(newState) {
         this.setState(newState)
     }
 
+    // createAssignment() {
+    //     this.assignmentService
+    //         .createAssignment(this.state.topicId, {
+    //             title: this.state.title,
+    //             description: this.state.description,
+    //             points: this.state.points});
+    // }
+
+
+
     render(){
         return(
             <ScrollView>
                 <FormLabel>Assignment Title</FormLabel>
                 <FormInput onChangeText={
-                    text => this.updateForm({title: text})}/>
+                    text => this.setState({title : text})}/>
                 <FormValidationMessage>
                     Title is required
                 </FormValidationMessage>
@@ -73,12 +101,14 @@ class AssignmentWidget extends Component {
                 </View>
 
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
-                <Button title='Create'
+                <Button title='Update and Save'
+                        // onPress={() => this.createAssignment()}
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
 
             </ScrollView>
         )
     }
 }
+
 
 export default AssignmentWidget;

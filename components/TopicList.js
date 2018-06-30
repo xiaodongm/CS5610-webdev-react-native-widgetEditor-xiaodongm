@@ -18,6 +18,11 @@ class TopicList extends Component {
         const courseId = navigation.getParam("courseId");
         const moduleId = navigation.getParam("moduleId");
         const lessonId = navigation.getParam("lessonId");
+        this.setState({
+            courseId: courseId,
+            moduleId: moduleId,
+            lessonId: lessonId
+        });
         fetch("https://webdev-summerfull-2018-xma.herokuapp.com/api/course/"+courseId+"/module/"+moduleId+"/lesson/"+lessonId+"/topic")
             .then(response => (response.json()))
             .then(topics => this.setState({topics}))
