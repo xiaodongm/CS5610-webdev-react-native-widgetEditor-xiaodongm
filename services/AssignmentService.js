@@ -23,9 +23,9 @@ class AssignmentService {
         { return response.json(); })
     }
 
-    // findAllAssignmentForTopic(topicId){
-    //     return fetch((ASSIGNMENT_API_URL.replace('topicId', topicId))).then(response => (response.json()))
-    // }
+    findAllAssignmentsForTopic(topicId){
+        return fetch((ASSIGNMENT_API_URL.replace('topicId', topicId))).then(response => (response.json()))
+    }
 }
 
 export default AssignmentService;
