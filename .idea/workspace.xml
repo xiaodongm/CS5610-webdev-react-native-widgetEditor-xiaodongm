@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f36605-e19f-48c3-bdc7-926f5e5cfe22" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/elements/AssignmentEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/AssignmentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/AssignmentList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements/AssignmentEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/elements/AssignmentEditor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/elements/AssignmentWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/elements/AssignmentWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AssignmentService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/AssignmentService.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -75,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AssignmentWidget.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AssignmentWidget.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/elements/AssignmentWidget.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="149">
+              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -90,8 +88,8 @@
       <file leaf-file-name="AssignmentEditor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elements/AssignmentEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="26" column="77" lean-forward="true" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
+            <state relative-caret-position="304">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -99,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AssignmentList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AssignmentList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/AssignmentList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="54" column="90" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+            <state relative-caret-position="341">
+              <caret line="57" column="96" lean-forward="true" selection-start-line="57" selection-start-column="96" selection-end-line="57" selection-end-column="96" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -233,12 +231,12 @@
       <workItem from="1530155273024" duration="5602000" />
       <workItem from="1530217885153" duration="1217000" />
       <workItem from="1530309878417" duration="24201000" />
-      <workItem from="1530391395345" duration="22426000" />
+      <workItem from="1530391395345" duration="26734000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80093000" />
+    <option name="totallyTimeSpent" value="84401000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -638,6 +636,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/WidgetList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/services/AssignmentService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
@@ -650,28 +658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/elements/AssignmentEditor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="77" lean-forward="true" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/WidgetList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elements/AssignmentWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+        <state relative-caret-position="304">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -680,8 +668,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/AssignmentList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="54" column="90" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+        <state relative-caret-position="341">
+          <caret line="57" column="96" lean-forward="true" selection-start-line="57" selection-start-column="96" selection-end-line="57" selection-end-column="96" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elements/AssignmentWidget.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>

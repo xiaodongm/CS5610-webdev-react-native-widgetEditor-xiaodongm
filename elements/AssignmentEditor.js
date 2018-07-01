@@ -40,8 +40,12 @@ class AssignmentWidget extends Component {
     }
 
     updateAssignment(assignmentId, newAssignment) {
+        let reRender = this.props.navigation.getParam('reRender');
         this.assignmentService
-            .updateAssignment(assignmentId, newAssignment);
+            .updateAssignment(assignmentId, newAssignment)
+            .then(
+                () => {reRender()}
+            )
     }
 
 
