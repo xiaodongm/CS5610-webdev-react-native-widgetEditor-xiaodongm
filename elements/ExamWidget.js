@@ -38,12 +38,12 @@ class ExamWidget extends Component {
     }
 
     createExam(topicId, newExam) {
-        // let reRender = this.props.navigation.getParam('reRender');
+        let reRender = this.props.navigation.getParam('reRender');
         this.examService
-            .createExam(topicId, newExam);
-            // .then(
-            // () => {reRender()}
-        // )
+            .createExam(topicId, newExam)
+            .then(
+            () => {reRender()}
+        )
     }
 
     render(){

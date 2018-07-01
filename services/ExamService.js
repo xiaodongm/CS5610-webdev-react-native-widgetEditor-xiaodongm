@@ -29,5 +29,11 @@ class ExamService {
         return fetch((EXAM_API_URL.replace('topicId', topicId))).then(response => (response.json()))
     }
 
+    deleteExam(examId){
+        return fetch(EXAM_ID_API_URL.replace('examId', examId), {
+            method: 'delete'
+        })
+    }
+
 }
 export default ExamService;

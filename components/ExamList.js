@@ -12,6 +12,8 @@ class ExamList extends Component {
         };
         this.examService = ExamService.instance;
         this.findAllExamsForTopic = this.findAllExamsForTopic.bind(this);
+        this.deleteExam = this.deleteExam.bind(this);
+        this.reRenderList = this.reRenderList.bind(this);
     }
 
     componentDidMount() {
@@ -26,6 +28,19 @@ class ExamList extends Component {
         return this.examService.findAllExamsForTopic(topicId)
     }
 
+    reRenderList(){
+        this.findAllExamsForTopic(this.props.topicId)
+            .then(exams => this.setState({exams}))
+    }
+
+    deleteExam(id){
+        this.examService
+            .deleteExam(id)
+            .then(
+                () => this.reRenderList()
+            )
+    }
+
 
     render() {
         return(
@@ -34,15 +49,12 @@ class ExamList extends Component {
                 <Button title="Add Exam"
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10}}
                         onPress={() =>{this.props.navigation.navigate('ExamWidget',
-                            {topicId : this.state.topicId})}}
-                />
-                {/*reRender: this.reRenderList*/}
+                            {topicId : this.state.topicId, reRender: this.reRenderList})}}/>
                 {this.state.exams.map(
                     (exam, index) => (
                         <ListItem
                             rightIcon={<Icon name='delete' size={30} color='red'
-                                             // onPress={() => {this.deleteAssignment(assignment.id)}}
-                            />}
+                                             onPress={() => {this.deleteExam(exam.id)}}/>}
                             // onPress={() => this.props.navigation
                             //     .navigate('ExamEditor', {examId: exam.id, reRender: this.reRenderList})}
                             key={index}
