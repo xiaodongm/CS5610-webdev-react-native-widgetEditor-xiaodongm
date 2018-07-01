@@ -1,27 +1,30 @@
 import React, {Component} from 'react'
-import { ScrollView, View, TextInput } from 'react-native';
+import {ScrollView, View, TextInput, Alert} from 'react-native';
 import {FormLabel, FormInput, FormValidationMessage, Button, Text} from 'react-native-elements'
-// import AssignmentService from '../services/AssignmentService'
+import AssignmentService from '../services/AssignmentService'
 
 class AssignmentWidget extends Component {
     static navigationOptions = {title: 'AssignmentWidget'};
     constructor(props){
         super(props);
         this.state = {
-            title: '',
+            assignments: [],
+            topicId : '',
+            title : '',
             description: '',
             points: '',
-            widgetType: 'assignment',
-            topicId:''
+            widgetType: 'assignment'
         };
-        // this.assignmentService = AssignmentService.instance;
-        // this.createAssignment = this.createAssignment.bind(this);
-        // this.setTopicId = this.setTopicId.bind(this);
+        this.assignmentService = AssignmentService.instance;
+        this.createAssignment = this.createAssignment.bind(this);
+        this.setTopicId = this.setTopicId.bind(this);
+        this.updateForm = this.updateForm.bind(this);
     }
 
-    // componentDidMount() {
-    //     this.setTopicId(this.props.topicId);
-    // }
+
+    componentDidMount() {
+        this.setTopicId(this.props.navigation.getParam('topicId'));
+    }
 
     componentWillReceiveProps(newProps){
         this.setTopicId(newProps.topicId);
@@ -35,14 +38,10 @@ class AssignmentWidget extends Component {
         this.setState(newState)
     }
 
-    // createAssignment() {
-    //     this.assignmentService
-    //         .createAssignment(this.state.topicId, {
-    //             title: this.state.title,
-    //             description: this.state.description,
-    //             points: this.state.points});
-    // }
-
+    createAssignment(topicId, newAssignment) {
+        this.assignmentService
+            .createAssignment(topicId, newAssignment);
+    }
 
 
     render(){
@@ -50,7 +49,7 @@ class AssignmentWidget extends Component {
             <ScrollView>
                 <FormLabel>Assignment Title</FormLabel>
                 <FormInput onChangeText={
-                    text => this.setState({title : text})}/>
+                    text => this.updateForm({title : text})}/>
                 <FormValidationMessage>
                     Title is required
                 </FormValidationMessage>
@@ -101,8 +100,14 @@ class AssignmentWidget extends Component {
                 </View>
 
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
-                <Button title='Update and Save'
-                        // onPress={() => this.createAssignment()}
+                <Button title='Create'
+                        onPress={() => {
+                            this.createAssignment(this.state.topicId,
+                                {title:this.state.title,
+                                description: this.state.description,
+                                points: this.state.points, widgetType:
+                                this.state.widgetType});
+                            this.props.navigation.goBack()}}
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
 
             </ScrollView>

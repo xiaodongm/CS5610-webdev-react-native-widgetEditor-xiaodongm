@@ -1,7 +1,12 @@
+import {View, Alert} from 'react-native'
+import {ListItem} from 'react-native-elements'
+
 let _singleton = Symbol();
 const ASSIGNMENT_API_URL =
     // 'http://localhost:8080/api/assignment';
     'https://webdev-summerfull-2018-xma.herokuapp.com/api/topic/topicId/assignment';
+const ASSIGNMENT_ID_API_URL =
+    'https://webdev-summerfull-2018-xma.herokuapp.com/api/assignment/assignmentId';
 
 class AssignmentService {
     constructor(singletonToken) {
@@ -15,6 +20,7 @@ class AssignmentService {
     }
 
     createAssignment(topicId, assignment) {
+
         return fetch(ASSIGNMENT_API_URL.replace('topicId', topicId),
             {   body: JSON.stringify(assignment),
                 headers: { 'Content-Type': 'application/json' },
@@ -25,6 +31,12 @@ class AssignmentService {
 
     findAllAssignmentsForTopic(topicId){
         return fetch((ASSIGNMENT_API_URL.replace('topicId', topicId))).then(response => (response.json()))
+    }
+
+    deleteAssignment(assignmentId){
+        return fetch(ASSIGNMENT_ID_API_URL.replace('assignmentId', assignmentId), {
+            method: 'delete'
+        })
     }
 }
 

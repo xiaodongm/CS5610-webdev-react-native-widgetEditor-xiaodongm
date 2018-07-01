@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AssignmentService from "../services/AssignmentService";
-import {ScrollView} from 'react-native'
-import {Button, ListItem, Text} from 'react-native-elements'
+import {Alert, ScrollView} from 'react-native'
+import {Button, ListItem, Text, Icon} from 'react-native-elements'
 
 class AssignmentList extends Component {
     constructor(props){
@@ -10,21 +10,27 @@ class AssignmentList extends Component {
             assignments: [],
             topicId : '',
             assignment: {
-                title : 'New Assignment',
+                title : '',
                 description: '',
                 points:'',
                 widgetType: 'assignment',
             }
         };
         this.assignmentService = AssignmentService.instance;
-        this.createAssignment = this.createAssignment.bind(this);
         this.findAllAssignmentsForTopic = this.findAllAssignmentsForTopic.bind(this);
+        this.deleteAssignment = this.deleteAssignment.bind(this);
     }
 
     componentDidMount() {
+
         this.setState({
             topicId: this.props.topicId
         });
+        this.findAllAssignmentsForTopic(this.props.topicId)
+            .then(assignments => this.setState({assignments}))
+    }
+
+    reRenderList(){
         this.findAllAssignmentsForTopic(this.props.topicId)
             .then(assignments => this.setState({assignments}))
     }
@@ -33,9 +39,10 @@ class AssignmentList extends Component {
         return this.assignmentService.findAllAssignmentsForTopic(topicId)
     }
 
-    createAssignment() {
+
+    deleteAssignment(id){
         this.assignmentService
-            .createAssignment(this.state.topicId, this.state.assignment);
+            .deleteAssignment(id)
     }
 
     render() {
@@ -44,21 +51,20 @@ class AssignmentList extends Component {
                 <Text h3 style={{marginLeft:15, marginBottom: 5 }}>Assignments</Text>
                 <Button title="Add Assignment"
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10}}
-                        onPress={() =>{ this.createAssignment();
-                            this.props.navigation.navigate('AssignmentWidget') }}
-                        topicId={this.state.topicId}/>
+                        onPress={() =>{this.props.navigation.navigate('AssignmentWidget',{
+                            topicId : this.state.topicId})}}/>
                 {this.state.assignments.map(
                     (assignment, index) => (
                         <ListItem
-                            onPress={() => this.props.navigation
-                                .navigate('AssignmentWidget', {assignmentId: assignment.id})}
+                            rightIcon={<Icon name='delete' size={30} color='red'
+                                        onPress={() => {this.deleteAssignment(assignment.id)}}/>}
+                            // onPress={() => this.props.navigation
+                            //     .navigate('AssignmentWidget', {assignmentId: assignment.id})}
                             key={index}
                             title={assignment.title}/>))}
             </ScrollView>
         )
     }
-
-
 }
 
 export default AssignmentList;

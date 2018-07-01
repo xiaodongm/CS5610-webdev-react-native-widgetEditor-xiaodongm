@@ -59,7 +59,8 @@ class WidgetList extends Component {
                             {/*key={index}*/}
                             {/*// subtitle={widget.description}*/}
                             {/*title={widget.title}/>))}*/}
-                            <AssignmentList topicId={this.props.navigation.getParam('topicId')}/>
+                            <AssignmentList navigation={this.props.navigation}
+                                            topicId={this.props.navigation.getParam('topicId')}/>
             </ScrollView>
         )
     }
