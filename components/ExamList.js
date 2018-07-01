@@ -55,8 +55,13 @@ class ExamList extends Component {
                         <ListItem
                             rightIcon={<Icon name='delete' size={30} color='red'
                                              onPress={() => {this.deleteExam(exam.id)}}/>}
-                            // onPress={() => this.props.navigation
-                            //     .navigate('ExamEditor', {examId: exam.id, reRender: this.reRenderList})}
+                            onPress={() => this.props.navigation
+                                .navigate('ExamEditor',
+                                    {examId: exam.id,
+                                    reRender: this.reRenderList,
+                                    title: exam.title,
+                                    description: exam.description,
+                                    points: exam.points})}
                             key={index}
                             title={exam.title}/>))}
             </ScrollView>

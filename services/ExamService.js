@@ -35,5 +35,18 @@ class ExamService {
         })
     }
 
+    updateExam(examId, newExam){
+        return fetch(EXAM_ID_API_URL.replace('examId', examId), {
+            method: 'put',
+            body: JSON.stringify(newExam),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(function (response) {
+                return response;
+            });
+    }
+
 }
 export default ExamService;

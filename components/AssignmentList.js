@@ -56,7 +56,12 @@ class AssignmentList extends Component {
                             rightIcon={<Icon name='delete' size={30} color='red'
                                         onPress={() => {this.deleteAssignment(assignment.id)}}/>}
                             onPress={() => this.props.navigation
-                                .navigate('AssignmentEditor', {assignmentId: assignment.id, reRender: this.reRenderList})}
+                                .navigate('AssignmentEditor',
+                                    {assignmentId: assignment.id,
+                                    reRender: this.reRenderList,
+                                    title: assignment.title,
+                                    description: assignment.description,
+                                    points: assignment.points})}
                             key={index}
                             title={assignment.title}/>))}
             </ScrollView>

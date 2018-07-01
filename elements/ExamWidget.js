@@ -13,7 +13,7 @@ class ExamWidget extends Component {
             title : '',
             points: '',
             description: '',
-            widgetType: 'assignment'
+            widgetType: 'exam'
         };
         this.examService = ExamService.instance;
         this.createExam = this.createExam.bind(this);
