@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {ScrollView, View, TextInput, Alert} from 'react-native';
 import {FormLabel, FormInput, FormValidationMessage, Button, Text} from 'react-native-elements'
 import ExamService from '../services/ExamService'
+import QuestionTypePicker from "./QuestionTypePicker";
 
 class ExamEditor extends Component {
     static navigationOptions = {title: 'ExamEditor'};
@@ -77,6 +78,11 @@ class ExamEditor extends Component {
                 <FormValidationMessage>
                     Points is required
                 </FormValidationMessage>
+
+                <QuestionTypePicker/>
+
+                <Button title='Add Question'
+                        buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
