@@ -47,6 +47,7 @@ class AssignmentWidget extends Component {
     }
 
 
+
     render(){
         return(
             <ScrollView>

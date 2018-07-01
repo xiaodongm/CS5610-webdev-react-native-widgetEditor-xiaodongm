@@ -1,6 +1,3 @@
-import {View, Alert} from 'react-native'
-import {ListItem} from 'react-native-elements'
-
 let _singleton = Symbol();
 const ASSIGNMENT_API_URL =
     // 'http://localhost:8080/api/assignment';

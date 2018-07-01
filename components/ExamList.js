@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Alert, ScrollView} from 'react-native'
 import {Button, ListItem, Text, Icon} from 'react-native-elements'
+import ExamService from "../services/ExamService";
 
 class ExamList extends Component {
     constructor(props){
@@ -9,12 +10,20 @@ class ExamList extends Component {
             exams: [],
             topicId : ''
         };
+        this.examService = ExamService.instance;
+        this.findAllExamsForTopic = this.findAllExamsForTopic.bind(this);
     }
 
     componentDidMount() {
         this.setState({
             topicId: this.props.topicId
         });
+        this.findAllExamsForTopic(this.props.topicId)
+            .then(exams => this.setState({exams}))
+    }
+
+    findAllExamsForTopic(topicId){
+        return this.examService.findAllExamsForTopic(topicId)
     }
 
 
@@ -24,9 +33,10 @@ class ExamList extends Component {
                 <Text h3 style={{marginLeft:15, marginBottom: 5 }}>Exams</Text>
                 <Button title="Add Exam"
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10}}
-                        // onPress={() =>{this.props.navigation.navigate('ExamWidget',
-                        //     {topicId : this.state.topicId, reRender: this.reRenderList})}}
+                        onPress={() =>{this.props.navigation.navigate('ExamWidget',
+                            {topicId : this.state.topicId})}}
                 />
+                {/*reRender: this.reRenderList*/}
                 {this.state.exams.map(
                     (exam, index) => (
                         <ListItem
