@@ -1,20 +1,14 @@
 import React, {Component} from 'react'
 import AssignmentService from "../services/AssignmentService";
 import {Alert, ScrollView} from 'react-native'
-import {Button, ListItem, Text, Icon, Header} from 'react-native-elements'
+import {Button, ListItem, Text, Icon} from 'react-native-elements'
 
 class AssignmentList extends Component {
     constructor(props){
         super(props);
         this.state = {
             assignments: [],
-            topicId : '',
-            assignment: {
-                title : '',
-                description: '',
-                points:'',
-                widgetType: 'assignment',
-            }
+            topicId : ''
         };
         this.assignmentService = AssignmentService.instance;
         this.findAllAssignmentsForTopic = this.findAllAssignmentsForTopic.bind(this);

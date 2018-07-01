@@ -3,6 +3,7 @@ import {ScrollView, Text} from 'react-native'
 import {Button, ListItem} from 'react-native-elements'
 import AssignmentService from '../services/AssignmentService'
 import AssignmentList from "./AssignmentList";
+import ExamList from "./ExamList";
 
 class WidgetList extends Component {
     static navigationOptions = {title: 'Widget List'};
@@ -61,6 +62,8 @@ class WidgetList extends Component {
                             {/*title={widget.title}/>))}*/}
                             <AssignmentList navigation={this.props.navigation}
                                             topicId={this.props.navigation.getParam('topicId')}/>
+                            <ExamList navigation={this.props.navigation}
+                                      topicId={this.props.navigation.getParam('topicId')}/>
             </ScrollView>
         )
     }

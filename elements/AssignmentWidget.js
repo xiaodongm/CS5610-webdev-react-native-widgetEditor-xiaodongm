@@ -110,8 +110,6 @@ class AssignmentWidget extends Component {
                                 description: this.state.description,
                                 points: this.state.points,
                                 widgetType: this.state.widgetType});
-                            let des = this.state.title;
-                            Alert.alert(des);
                             this.props.navigation.goBack()}}
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
 
