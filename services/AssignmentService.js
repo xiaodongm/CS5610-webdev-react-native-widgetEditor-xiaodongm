@@ -20,7 +20,6 @@ class AssignmentService {
     }
 
     createAssignment(topicId, assignment) {
-
         return fetch(ASSIGNMENT_API_URL.replace('topicId', topicId),
             {   body: JSON.stringify(assignment),
                 headers: { 'Content-Type': 'application/json' },
@@ -37,6 +36,19 @@ class AssignmentService {
         return fetch(ASSIGNMENT_ID_API_URL.replace('assignmentId', assignmentId), {
             method: 'delete'
         })
+    }
+
+    updateAssignment(assignmentId, newAssignment){
+        return fetch(ASSIGNMENT_ID_API_URL.replace('assignmentId', assignmentId), {
+            method: 'put',
+            body: JSON.stringify(newAssignment),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+            .then(function (response) {
+                return response;
+            });
     }
 }
 

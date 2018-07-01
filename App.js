@@ -8,6 +8,7 @@ import { createStackNavigator } from 'react-navigation';
 import {Button} from 'react-native-elements';
 import WidgetList from "./components/WidgetList";
 import AssignmentWidget from './elements/AssignmentWidget'
+import AssignmentEditor from './elements/AssignmentEditor'
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -37,7 +38,8 @@ const App = createStackNavigator({
     LessonList,
     TopicList,
     WidgetList,
-    AssignmentWidget
+    AssignmentWidget,
+    AssignmentEditor
 });
 
 export default App;

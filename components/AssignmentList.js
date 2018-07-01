@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AssignmentService from "../services/AssignmentService";
 import {Alert, ScrollView} from 'react-native'
-import {Button, ListItem, Text, Icon} from 'react-native-elements'
+import {Button, ListItem, Text, Icon, Header} from 'react-native-elements'
 
 class AssignmentList extends Component {
     constructor(props){
@@ -19,10 +19,10 @@ class AssignmentList extends Component {
         this.assignmentService = AssignmentService.instance;
         this.findAllAssignmentsForTopic = this.findAllAssignmentsForTopic.bind(this);
         this.deleteAssignment = this.deleteAssignment.bind(this);
+        this.reRenderList = this.reRenderList.bind(this);
     }
 
     componentDidMount() {
-
         this.setState({
             topicId: this.props.topicId
         });
@@ -51,15 +51,15 @@ class AssignmentList extends Component {
                 <Text h3 style={{marginLeft:15, marginBottom: 5 }}>Assignments</Text>
                 <Button title="Add Assignment"
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10}}
-                        onPress={() =>{this.props.navigation.navigate('AssignmentWidget',{
-                            topicId : this.state.topicId})}}/>
+                        onPress={() =>{this.props.navigation.navigate('AssignmentWidget',
+                                      {topicId : this.state.topicId, reRender: this.reRenderList})}}/>
                 {this.state.assignments.map(
                     (assignment, index) => (
                         <ListItem
                             rightIcon={<Icon name='delete' size={30} color='red'
                                         onPress={() => {this.deleteAssignment(assignment.id)}}/>}
-                            // onPress={() => this.props.navigation
-                            //     .navigate('AssignmentWidget', {assignmentId: assignment.id})}
+                            onPress={() => this.props.navigation
+                                .navigate('AssignmentEditor', {assignmentId: assignment.id})}
                             key={index}
                             title={assignment.title}/>))}
             </ScrollView>

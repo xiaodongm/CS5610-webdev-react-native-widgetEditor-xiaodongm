@@ -4,47 +4,46 @@ import {FormLabel, FormInput, FormValidationMessage, Button, Text} from 'react-n
 import AssignmentService from '../services/AssignmentService'
 
 class AssignmentWidget extends Component {
-    static navigationOptions = {title: 'AssignmentWidget'};
+    static navigationOptions = {title: 'AssignmentEditor'};
     constructor(props){
         super(props);
         this.state = {
             assignments: [],
             topicId : '',
+            assignmentId: '',
             title : '',
             description: '',
             points: '',
             widgetType: 'assignment'
         };
         this.assignmentService = AssignmentService.instance;
-        this.createAssignment = this.createAssignment.bind(this);
-        this.setTopicId = this.setTopicId.bind(this);
+        this.updateAssignment = this.updateAssignment.bind(this);
+        this.setAssignmentId = this.setAssignmentId.bind(this);
         this.updateForm = this.updateForm.bind(this);
     }
 
 
     componentDidMount() {
-        this.setTopicId(this.props.navigation.getParam('topicId'));
+        this.setAssignmentId(this.props.navigation.getParam('assignmentId'));
     }
 
     componentWillReceiveProps(newProps){
-        this.setTopicId(newProps.topicId);
+        this.setAssignmentId(newProps.assignmentId);
     }
 
-    setTopicId(topicId) {
-        this.setState({topicId: topicId});
+    setAssignmentId(assignmentId) {
+        this.setState({assignmentId: assignmentId});
     }
 
     updateForm(newState) {
         this.setState(newState)
     }
 
-    createAssignment(topicId, newAssignment) {
-        let reRender = this.props.navigation.getParam('reRender');
+    updateAssignment(assignmentId, newAssignment) {
         this.assignmentService
-            .createAssignment(topicId, newAssignment).then(
-            () => {reRender()}
-        )
+            .updateAssignment(assignmentId, newAssignment);
     }
+
 
 
     render(){
@@ -74,10 +73,10 @@ class AssignmentWidget extends Component {
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
 
                 <View style={{flexDirection: 'row',
-                              justifyContent: 'space-between',
-                              margin: 10}}>
-                <Text>{this.state.title}</Text>
-                <Text>{this.state.points}</Text>
+                    justifyContent: 'space-between',
+                    margin: 10}}>
+                    <Text>{this.state.title}</Text>
+                    <Text>{this.state.points}</Text>
                 </View>
 
                 <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
@@ -96,16 +95,16 @@ class AssignmentWidget extends Component {
                 <TextInput style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 40}}/>
 
                 <View style={{ flexDirection: 'row'}}>
-                <Button title='Cancel'
-                        buttonStyle={{backgroundColor: 'red', borderRadius: 5}}/>
-                <Button title='Submit'
-                        buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>
+                    <Button title='Cancel'
+                            buttonStyle={{backgroundColor: 'red', borderRadius: 5}}/>
+                    <Button title='Submit'
+                            buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>
                 </View>
 
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
-                <Button title='Create'
+                <Button title='Update and Save'
                         onPress={() => {
-                            this.createAssignment(this.state.topicId,
+                            this.updateAssignment(this.state.assignmentId,
                                 {title:this.state.title,
                                 description: this.state.description,
                                 points: this.state.points,
