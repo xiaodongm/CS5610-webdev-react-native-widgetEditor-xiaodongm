@@ -11,6 +11,7 @@ class ExamWidget extends Component {
             exams: [],
             topicId : '',
             title : '',
+            points: '',
             description: '',
             widgetType: 'assignment'
         };
@@ -62,12 +63,12 @@ class ExamWidget extends Component {
                     Description is required
                 </FormValidationMessage>
 
-                {/*<FormLabel>Assignment Points</FormLabel>*/}
-                {/*<FormInput onChangeText={*/}
-                    {/*text => this.updateForm({points: text})}/>*/}
-                {/*<FormValidationMessage>*/}
-                    {/*Points is required*/}
-                {/*</FormValidationMessage>*/}
+                <FormLabel>Exam Points</FormLabel>
+                <FormInput onChangeText={
+                    text => this.updateForm({points: text})}/>
+                <FormValidationMessage>
+                    Points is required
+                </FormValidationMessage>
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
@@ -76,7 +77,7 @@ class ExamWidget extends Component {
                     justifyContent: 'space-between',
                     margin: 10}}>
                     <Text>{this.state.title}</Text>
-                    {/*<Text>{this.state.points}</Text>*/}
+                    <Text>{this.state.points}</Text>
                 </View>
 
                 <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
@@ -107,6 +108,7 @@ class ExamWidget extends Component {
                             this.createExam(this.state.topicId,
                                 {title:this.state.title,
                                     description: this.state.description,
+                                    points: this.state.points,
                                     widgetType: this.state.widgetType});
                             this.props.navigation.goBack()}}
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
