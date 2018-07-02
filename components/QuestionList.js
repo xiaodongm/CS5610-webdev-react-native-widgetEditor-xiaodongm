@@ -45,13 +45,13 @@ class QuestionList extends Component {
 
     render() {
         return(
-            <ScrollView>
-                <Text h3 style={{marginLeft:15, marginBottom: 5 }}>Question List</Text>
+            <ScrollView style={{marginTop:15}}>
+                <Text h4 style={{marginLeft:15, marginBottom: 5 }}>Question List</Text>
                 {/*<Button title="Add Assignment"*/}
                         {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10}}*/}
                         {/*onPress={() =>{this.props.navigation.navigate('AssignmentWidget',*/}
                             {/*{topicId : this.state.topicId, reRender: this.reRenderList})}}/>*/}
-                {this.state.assignments.map(
+                {this.state.questions.map(
                     (question, index) => (
                         <ListItem
                             rightIcon={<Icon name='delete' size={30} color='red'

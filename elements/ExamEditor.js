@@ -3,6 +3,7 @@ import {ScrollView, View, TextInput, Alert} from 'react-native';
 import {FormLabel, FormInput, FormValidationMessage, Button, Text} from 'react-native-elements'
 import ExamService from '../services/ExamService'
 import QuestionTypePicker from "./QuestionTypePicker";
+import QuestionList from "../components/QuestionList";
 
 class ExamEditor extends Component {
     static navigationOptions = {title: 'ExamEditor'};
@@ -79,9 +80,9 @@ class ExamEditor extends Component {
                     Points is required
                 </FormValidationMessage>
 
-                <QuestionTypePicker/>
-
                 <Button title='Add Question'
+                        onPress={() => this.props.navigation
+                            .navigate('QuestionCreator', {examId: this.props.navigation.getParam('examId')})}
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
@@ -115,6 +116,9 @@ class ExamEditor extends Component {
                 {/*<Button title='Submit'*/}
                 {/*buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>*/}
                 {/*</View>*/}
+
+                <QuestionList navigation={this.props.navigation}
+                              examId={this.props.navigation.getParam('examId')}/>
 
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
                 <Button title='Update and Save'
