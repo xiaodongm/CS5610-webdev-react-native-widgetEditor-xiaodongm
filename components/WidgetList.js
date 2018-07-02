@@ -22,8 +22,8 @@ class WidgetList extends Component {
                 widgetType: 'assignment',
             }
         };
-        this.assignmentService = AssignmentService.instance;
-        this.createAssignment = this.createAssignment.bind(this);
+        // this.assignmentService = AssignmentService.instance;
+        // this.createAssignment = this.createAssignment.bind(this);
 
     }
     componentDidMount() {
@@ -34,10 +34,10 @@ class WidgetList extends Component {
         });
     }
 
-    createAssignment() {
-        this.assignmentService
-            .createAssignment(this.state.topicId, this.state.assignment);
-    }
+    // createAssignment() {
+    //     this.assignmentService
+    //         .createAssignment(this.state.topicId, this.state.assignment);
+    // }
 
 
 
