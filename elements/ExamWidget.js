@@ -49,25 +49,36 @@ class ExamWidget extends Component {
     render(){
         return(
             <ScrollView>
-                <FormLabel>Exam Title</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({title : text})}/>
-                <FormValidationMessage>
-                    Title is required
-                </FormValidationMessage>
+                <View style={{borderRadius:10, paddingBottom:10, margin:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Exam Title</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({title : text})}/>
+                    <FormValidationMessage>
+                        Title is required
+                    </FormValidationMessage>
+                </View>
 
-                <FormLabel>Exam Description</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({description: text})}/>
-                <FormValidationMessage>
-                    Description is required
-                </FormValidationMessage>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Exam Description</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({description: text})}
+                               multiline={true}/>
+                    <FormValidationMessage>
+                        Description is required
+                    </FormValidationMessage>
+                </View>
 
-                <FormLabel>Exam Points</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({points: text})}/>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Exam Points</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({points: text})}/>
+                    <FormValidationMessage>
+                        Points is required
+                    </FormValidationMessage>
+                </View>
+
                 <FormValidationMessage>
-                    Points is required
+                    *Add Question to this Exam will be available in ExamEditor after creating.
                 </FormValidationMessage>
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>

@@ -56,22 +56,28 @@ class ExamEditor extends Component {
     render(){
         return(
             <ScrollView>
-                <FormLabel>Exam Title</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({title : text})}
-                           value={this.state.title}/>
-                <FormValidationMessage>
-                    Title is required
-                </FormValidationMessage>
+                <View style={{borderRadius:10, paddingBottom:10, margin:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Exam Title</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({title : text})}
+                               value={this.state.title}/>
+                    <FormValidationMessage>
+                        Title is required
+                    </FormValidationMessage>
+                </View>
 
-                <FormLabel>Exam Description</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({description: text})}
-                           value={this.state.description}/>
-                <FormValidationMessage>
-                    Description is required
-                </FormValidationMessage>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Exam Description</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({description: text})}
+                               value={this.state.description}
+                               multiline={true}/>
+                    <FormValidationMessage>
+                        Description is required
+                    </FormValidationMessage>
+                </View>
 
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
                 <FormLabel>Exam Points</FormLabel>
                 <FormInput onChangeText={
                     text => this.updateForm({points: text})}
@@ -79,6 +85,7 @@ class ExamEditor extends Component {
                 <FormValidationMessage>
                     Points is required
                 </FormValidationMessage>
+                </View>
 
                 <Button title='Add Question'
                         onPress={() => this.props.navigation
@@ -116,9 +123,10 @@ class ExamEditor extends Component {
                 {/*<Button title='Submit'*/}
                 {/*buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>*/}
                 {/*</View>*/}
-
+                <View style={{padding: 15}}>
                 <QuestionList navigation={this.props.navigation}
                               examId={this.props.navigation.getParam('examId')}/>
+                </View>
 
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
                 <Button title='Update and Save'

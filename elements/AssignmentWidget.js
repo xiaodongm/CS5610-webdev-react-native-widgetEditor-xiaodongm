@@ -51,26 +51,34 @@ class AssignmentWidget extends Component {
     render(){
         return(
             <ScrollView>
-                <FormLabel>Assignment Title</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({title : text})}/>
-                <FormValidationMessage>
-                    Title is required
-                </FormValidationMessage>
+                <View style={{borderRadius:10, paddingBottom:10, margin:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Assignment Title</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({title : text})}/>
+                    <FormValidationMessage>
+                        Title is required
+                    </FormValidationMessage>
+                </View>
 
-                <FormLabel>Assignment Description</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({description: text})}/>
-                <FormValidationMessage>
-                    Description is required
-                </FormValidationMessage>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Assignment Description</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({description: text})}
+                               multiline={true}/>
+                    <FormValidationMessage>
+                        Description is required
+                    </FormValidationMessage>
+                </View>
 
-                <FormLabel>Assignment Points</FormLabel>
-                <FormInput onChangeText={
-                    text => this.updateForm({points: text})}/>
-                <FormValidationMessage>
-                    Points is required
-                </FormValidationMessage>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                    <FormLabel>Assignment Points</FormLabel>
+                    <FormInput onChangeText={
+                        text => this.updateForm({points: text})}/>
+                    <FormValidationMessage>
+                        Points is required
+                    </FormValidationMessage>
+                </View>
+
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
 
