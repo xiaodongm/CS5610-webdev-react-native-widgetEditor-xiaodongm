@@ -47,10 +47,6 @@ class QuestionList extends Component {
         return(
             <ScrollView style={{marginTop:15}}>
                 <Text h4 style={{marginLeft:15, marginBottom: 5 }}>Question List</Text>
-                {/*<Button title="Add Assignment"*/}
-                        {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10}}*/}
-                        {/*onPress={() =>{this.props.navigation.navigate('AssignmentWidget',*/}
-                            {/*{topicId : this.state.topicId, reRender: this.reRenderList})}}/>*/}
                 {this.state.questions.map(
                     (question, index) => (
                         <ListItem
@@ -65,6 +61,10 @@ class QuestionList extends Component {
                             //             points: assignment.points})}
                             key={index}
                             title={question.title}/>))}
+                <Button title='Add Question'
+                        onPress={() => this.props.navigation
+                            .navigate('QuestionCreator', {examId: this.props.examId, reRender: this.reRenderList})}
+                        buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
             </ScrollView>
         )
     }

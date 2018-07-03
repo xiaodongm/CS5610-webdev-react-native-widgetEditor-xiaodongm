@@ -23,6 +23,7 @@ class MultipleChoiceQuestionWidget extends Component {
         this.updateForm = this.updateForm.bind(this);
         this.setExamId = this.setExamId.bind(this);
         this.addChoice = this.addChoice.bind(this);
+        this.deleteChoice = this.deleteChoice.bind(this);
     }
 
     componentDidMount() {
@@ -43,6 +44,11 @@ class MultipleChoiceQuestionWidget extends Component {
         }
     }
 
+    deleteChoice(index){
+        let newOptions = this.state.options;
+        newOptions.splice(index,1);
+        this.setState({options: newOptions});
+    }
 
     setExamId(examId) {
         this.setState({examId: examId});
@@ -53,12 +59,12 @@ class MultipleChoiceQuestionWidget extends Component {
     }
 
     createMultipleChoiceQuestion(examId, newQuestion) {
-        // let reRender = this.props.navigation.getParam('reRender');
+        let reRender = this.props.navigation.getParam('reRender');
         this.multippleChoiceQuestionService
             .createMultipleChoiceQuestion(examId, newQuestion)
-            // .then(
-            //     () => {reRender()}
-            // )
+            .then(
+                () => {reRender()}
+            )
     }
 
     render(){
@@ -134,7 +140,8 @@ class MultipleChoiceQuestionWidget extends Component {
                                       this.setState({checked: index, correctOption: choice});
                                   }}/>
                         </View>
-                            <Icon name='delete-forever' size={30}/>
+                            <Icon name='delete-forever' size={30}
+                                  onPress={() => {this.deleteChoice(index)}}/>
                         </View>
                     )
                 )}
@@ -157,15 +164,6 @@ class MultipleChoiceQuestionWidget extends Component {
                                 this.props.navigation.goBack()}}
                             buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>
                 </View>
-                {/*<Button title='Create'*/}
-                {/*// onPress={() => {*/}
-                {/*//     this.createExam(this.state.topicId,*/}
-                {/*//         {title:this.state.title,*/}
-                {/*//             description: this.state.description,*/}
-                {/*//             points: this.state.points,*/}
-                {/*//             widgetType: this.state.widgetType});*/}
-                {/*//     this.props.navigation.goBack()}}*/}
-                {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>*/}
             </ScrollView>
         )
     }

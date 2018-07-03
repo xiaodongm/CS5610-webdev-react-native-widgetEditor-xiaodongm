@@ -87,10 +87,20 @@ class ExamEditor extends Component {
                 </FormValidationMessage>
                 </View>
 
-                <Button title='Add Question'
-                        onPress={() => this.props.navigation
-                            .navigate('QuestionCreator', {examId: this.props.navigation.getParam('examId')})}
+                <Button title='Update and Save'
+                        onPress={() => {
+                            this.updateExam(this.state.examId,
+                                {title:this.state.title,
+                                    description: this.state.description,
+                                    points: this.state.points,
+                                    widgetType: this.state.widgetType});
+                            this.props.navigation.goBack()}}
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
+
+                {/*<Button title='Add Question'*/}
+                        {/*onPress={() => this.props.navigation*/}
+                            {/*.navigate('QuestionCreator', {examId: this.props.navigation.getParam('examId')})}*/}
+                        {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>*/}
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
@@ -123,21 +133,21 @@ class ExamEditor extends Component {
                 {/*<Button title='Submit'*/}
                 {/*buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>*/}
                 {/*</View>*/}
-                <View style={{padding: 15}}>
+                <View>
                 <QuestionList navigation={this.props.navigation}
                               examId={this.props.navigation.getParam('examId')}/>
                 </View>
 
                 <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
-                <Button title='Update and Save'
-                        onPress={() => {
-                            this.updateExam(this.state.examId,
-                                {title:this.state.title,
-                                    description: this.state.description,
-                                    points: this.state.points,
-                                    widgetType: this.state.widgetType});
-                            this.props.navigation.goBack()}}
-                        buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
+                {/*<Button title='Update and Save'*/}
+                        {/*onPress={() => {*/}
+                            {/*this.updateExam(this.state.examId,*/}
+                                {/*{title:this.state.title,*/}
+                                    {/*description: this.state.description,*/}
+                                    {/*points: this.state.points,*/}
+                                    {/*widgetType: this.state.widgetType});*/}
+                            {/*this.props.navigation.goBack()}}*/}
+                        {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>*/}
             </ScrollView>
         )
     }
