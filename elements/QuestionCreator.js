@@ -4,6 +4,7 @@ import {FormLabel, FormInput, FormValidationMessage, Button, Text} from 'react-n
 import BaseQuestionService from '../services/BaseQuestionService'
 import QuestionTypePicker from './QuestionTypePicker'
 import MultipleChoiceQuestionWidget from "./MultipleChoiceQuestionWidget";
+import EssayQuestionWidget from "./EssayQuestionWidget";
 
 class QuestionCreator extends Component {
     static navigationOptions = {title: 'QuestionCreator'};
@@ -39,14 +40,6 @@ class QuestionCreator extends Component {
         this.setState(newState)
     }
 
-    // createExam(topicId, newExam) {
-    //     let reRender = this.props.navigation.getParam('reRender');
-    //     this.examService
-    //         .createExam(topicId, newExam)
-    //         .then(
-    //             () => {reRender()}
-    //         )
-    // }
     setQuestionType(questionType){
         this.setState({questionType});
     }
@@ -56,6 +49,9 @@ class QuestionCreator extends Component {
             return <MultipleChoiceQuestionWidget navigation={this.props.navigation}
                                                  examId={this.state.examId}/>
 
+        }else if(questionType === 'ES'){
+            return<EssayQuestionWidget navigation={this.props.navigation}
+                                       examId={this.state.examId}/>
         }
     }
 
