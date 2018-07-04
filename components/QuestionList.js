@@ -52,13 +52,16 @@ class QuestionList extends Component {
                         <ListItem
                             rightIcon={<Icon name='delete' size={30} color='red'
                                              onPress={() => {this.deleteQuestion(question.id)}}/>}
-                            // onPress={() => this.props.navigation
-                            //     .navigate('AssignmentEditor',
-                            //         {assignmentId: assignment.id,
-                            //             reRender: this.reRenderList,
-                            //             title: assignment.title,
-                            //             description: assignment.description,
-                            //             points: assignment.points})}
+                            onPress={() => {if(question.type === 'MC')
+                                {this.props.navigation.navigate('MultipleChoiceQuestionEditor',
+                                    {examId: this.state.examId,
+                                    questionId: question.id,
+                                    title: question.title,
+                                    description: question.description,
+                                    points: question.points,
+                                    options: question.options,
+                                    correctOption: question.correctOption,
+                                    reRender: this.reRenderList})}}}
                             key={index}
                             title={question.title}/>))}
                 <Button title='Add Question'

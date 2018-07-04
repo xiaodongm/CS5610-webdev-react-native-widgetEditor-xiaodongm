@@ -12,6 +12,7 @@ import AssignmentEditor from './elements/AssignmentEditor'
 import ExamWidget from './elements/ExamWidget'
 import ExamEditor from './elements/ExamEditor'
 import QuestionCreator from  './elements/QuestionCreator'
+import MultipleChoiceQuestionEditor from './elements/MultipleChoiceQuestionEditor'
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -45,7 +46,8 @@ const App = createStackNavigator({
     AssignmentEditor,
     ExamWidget,
     ExamEditor,
-    QuestionCreator
+    QuestionCreator,
+    MultipleChoiceQuestionEditor
 });
 
 export default App;

@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import {ScrollView, View, TextInput, Alert} from 'react-native';
 import {FormLabel, FormInput, FormValidationMessage, Button, Text, CheckBox, Icon} from 'react-native-elements'
-import MultipleChoiceQuestionService from '../services/MultipleChoiceQuestionService'
+import MultipleChoiceQuestionService from "../services/MultipleChoiceQuestionService";
 
-class MultipleChoiceQuestionWidget extends Component {
+class MultipleChoiceQuestionEditor extends Component {
+    static navigationOptions = {title: 'MultipleChoiceQuestionEditor'};
     constructor(props){
         super(props);
         this.state = {
             examId : '',
+            questionId: '',
             title : '',
             points: '',
             options: [],
@@ -16,20 +18,44 @@ class MultipleChoiceQuestionWidget extends Component {
             type: 'MC',
             choiceText: '',
         };
-        this.multippleChoiceQuestionService = MultipleChoiceQuestionService.instance;
-        this.createMultipleChoiceQuestion = this.createMultipleChoiceQuestion.bind(this);
+        this.multipleChoiceQuestionService = MultipleChoiceQuestionService.instance;
+        this.updateQuestion = this.updateQuestion.bind(this);
+        this.setQuestionId = this.setQuestionId.bind(this);
         this.updateForm = this.updateForm.bind(this);
-        this.setExamId = this.setExamId.bind(this);
         this.addChoice = this.addChoice.bind(this);
         this.deleteChoice = this.deleteChoice.bind(this);
     }
 
     componentDidMount() {
-        this.setExamId(this.props.examId);
+        this.setQuestionId(this.props.navigation.getParam('questionId'));
+        this.setState({title: this.props.navigation.getParam('title')});
+        this.setState({description: this.props.navigation.getParam('description')});
+        this.setState({points: this.props.navigation.getParam('points')});
+        this.setState({options: this.props.navigation.getParam('options')});
+        this.setState({correctOption: this.props.navigation.getParam('correctOption')});
+        this.setState({examId: this.props.navigation.getParam('examId')});
     }
 
+
     componentWillReceiveProps(newProps){
-        this.setExamId(newProps.examId);
+        this.setQuestionId(newProps.questionId);
+    }
+
+    setQuestionId(questionId) {
+        this.setState({questionId: questionId});
+    }
+
+    updateForm(newState) {
+        this.setState(newState)
+    }
+
+    updateQuestion(questionId, newQuestion) {
+        let reRender = this.props.navigation.getParam('reRender');
+        this.multipleChoiceQuestionService
+            .updateMultipleChoiceQuestion(questionId, newQuestion)
+            .then(
+                () => {reRender()}
+            )
     }
 
     addChoice(choice){
@@ -48,30 +74,14 @@ class MultipleChoiceQuestionWidget extends Component {
         this.setState({options: newOptions});
     }
 
-    setExamId(examId) {
-        this.setState({examId: examId});
-    }
-
-    updateForm(newState) {
-        this.setState(newState)
-    }
-
-    createMultipleChoiceQuestion(examId, newQuestion) {
-        let reRender = this.props.navigation.getParam('reRender');
-        this.multippleChoiceQuestionService
-            .createMultipleChoiceQuestion(examId, newQuestion)
-            .then(
-                () => {reRender()}
-            )
-    }
-
     render(){
         return(
             <ScrollView>
                 <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
                     <FormLabel>Question Title</FormLabel>
                     <FormInput onChangeText={
-                        text => this.updateForm({title : text})}/>
+                        text => this.updateForm({title : text})}
+                               value={this.state.title}/>
                     <FormValidationMessage>
                         Title is required
                     </FormValidationMessage>
@@ -81,7 +91,8 @@ class MultipleChoiceQuestionWidget extends Component {
                     <FormLabel>Question Description</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({description: text})}
-                               multiline={true}/>
+                               multiline={true}
+                               value={this.state.description}/>
                     <FormValidationMessage>
                         Description is required
                     </FormValidationMessage>
@@ -91,7 +102,8 @@ class MultipleChoiceQuestionWidget extends Component {
                 <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
                     <FormLabel>Question Points</FormLabel>
                     <FormInput onChangeText={
-                        text => this.updateForm({points: text})}/>
+                        text => this.updateForm({points: text})}
+                               value={this.state.points}/>
                     <FormValidationMessage>
                         Points is required
                     </FormValidationMessage>
@@ -127,16 +139,16 @@ class MultipleChoiceQuestionWidget extends Component {
                     (choice, index) => (
                         <View key={index}
                               style={{flexDirection : 'row'}}>
-                        <View width={370}>
-                        <CheckBox title={choice}
-                                  uncheckedIcon='circle-o'
-                                  checkedIcon='dot-circle-o'
-                                  containerStyle={this.state.correctOption === choice && {backgroundColor: 'lightskyblue'}}
-                                  checked={this.state.correctOption === choice}
-                                  onPress={() => {
-                                      this.setState({correctOption: choice});
-                                  }}/>
-                        </View>
+                            <View width={370}>
+                                <CheckBox title={choice}
+                                          uncheckedIcon='circle-o'
+                                          checkedIcon='dot-circle-o'
+                                          containerStyle={this.state.correctOption === choice && {backgroundColor: 'lightskyblue'}}
+                                          checked={this.state.correctOption === choice}
+                                          onPress={() => {
+                                              this.setState({correctOption: choice});
+                                          }}/>
+                            </View>
                             <Icon name='delete-forever' size={30}
                                   onPress={() => {this.deleteChoice(index)}}/>
                         </View>
@@ -149,15 +161,14 @@ class MultipleChoiceQuestionWidget extends Component {
                     <Button title='Cancel'
                             onPress={() => {this.props.navigation.goBack()}}
                             buttonStyle={{backgroundColor: 'red', borderRadius: 5}}/>
-                    <Button title='Submit'
+                    <Button title='Update'
                             onPress={() => {
-                                this.createMultipleChoiceQuestion(this.state.examId,
+                                this.updateQuestion(this.state.questionId,
                                     {title:this.state.title,
-                                    description: this.state.description,
-                                    points: this.state.points,
-                                    type: this.state.type,
-                                    options: this.state.options,
-                                    correctOption: this.state.correctOption});
+                                        description: this.state.description,
+                                        points: this.state.points,
+                                        options: this.state.options,
+                                        correctOption: this.state.correctOption});
                                 this.props.navigation.goBack()}}
                             buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>
                 </View>
@@ -165,8 +176,5 @@ class MultipleChoiceQuestionWidget extends Component {
         )
     }
 
-
-
-
 }
-export default MultipleChoiceQuestionWidget;
+export default MultipleChoiceQuestionEditor;
