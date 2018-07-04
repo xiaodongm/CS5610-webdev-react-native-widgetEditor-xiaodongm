@@ -61,7 +61,17 @@ class QuestionList extends Component {
                                     points: question.points,
                                     options: question.options,
                                     correctOption: question.correctOption,
-                                    reRender: this.reRenderList})}}}
+                                    reRender: this.reRenderList})
+                                }else if(question.type === 'ES'){
+                                this.props.navigation.navigate('EssayQuestionEditor',
+                                    {examId: this.state.examId,
+                                        questionId: question.id,
+                                        title: question.title,
+                                        description: question.description,
+                                        points: question.points,
+                                        reRender: this.reRenderList})
+                                }
+                            }}
                             key={index}
                             title={question.title}/>))}
                 <Button title='Add Question'
