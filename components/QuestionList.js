@@ -15,6 +15,7 @@ class QuestionList extends Component {
         this.findAllQuestionsForExam = this.findAllQuestionsForExam.bind(this);
         this.deleteQuestion = this.deleteQuestion.bind(this);
         this.reRenderList = this.reRenderList.bind(this);
+        this.renderLeftIcon = this.renderLeftIcon.bind(this);
     }
 
     componentDidMount() {
@@ -42,6 +43,19 @@ class QuestionList extends Component {
             )
     }
 
+    renderLeftIcon(type){
+        if(type === 'MC'){
+            return {name: 'list'}
+        }else if(type === 'ES'){
+            return {name: 'subject'}
+        }else if(type === 'FB'){
+            return {name: 'code'}
+        }else if(type === 'TF'){
+            return {name: 'check'}
+        }
+    }
+
+
 
     render() {
         return(
@@ -52,6 +66,9 @@ class QuestionList extends Component {
                         <ListItem
                             rightIcon={<Icon name='delete' size={30} color='red'
                                              onPress={() => {this.deleteQuestion(question.id)}}/>}
+
+                            leftIcon={this.renderLeftIcon(question.type)}
+
                             onPress={() => {if(question.type === 'MC')
                                 {this.props.navigation.navigate('MultipleChoiceQuestionEditor',
                                     {examId: this.state.examId,

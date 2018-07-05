@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45f36605-e19f-48c3-bdc7-926f5e5cfe22" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/elements/TrueOrFalseQuestionEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/QuestionList.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/QuestionList.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrueOrFalseQuestionEditor.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TrueOrFalseQuestionEditor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elements/TrueOrFalseQuestionEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1771">
-              <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+            <state relative-caret-position="725">
+              <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -79,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuestionList.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QuestionList.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/QuestionList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="85" column="58" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
+            <state relative-caret-position="192">
+              <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -170,9 +167,9 @@
         <option value="$PROJECT_DIR$/services/TrueOrFalseQuestionService.js" />
         <option value="$PROJECT_DIR$/elements/TrueOrFalseQuestionWidget.js" />
         <option value="$PROJECT_DIR$/elements/QuestionCreator.js" />
-        <option value="$PROJECT_DIR$/components/QuestionList.js" />
         <option value="$PROJECT_DIR$/App.js" />
         <option value="$PROJECT_DIR$/elements/TrueOrFalseQuestionEditor.js" />
+        <option value="$PROJECT_DIR$/components/QuestionList.js" />
       </list>
     </option>
   </component>
@@ -274,12 +271,12 @@
       <workItem from="1530551913146" duration="25273000" />
       <workItem from="1530597197200" duration="4684000" />
       <workItem from="1530649047477" duration="16426000" />
-      <workItem from="1530736607074" duration="18042000" />
+      <workItem from="1530736607074" duration="19608000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170108000" />
+    <option name="totallyTimeSpent" value="171674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -669,16 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/QuestionList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="85" column="58" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-315">
@@ -691,8 +678,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/elements/TrueOrFalseQuestionEditor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1771">
-          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        <state relative-caret-position="725">
+          <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/QuestionList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="54" column="9" lean-forward="true" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
