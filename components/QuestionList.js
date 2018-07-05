@@ -79,7 +79,16 @@ class QuestionList extends Component {
                                     description: question.description,
                                     points: question.points,
                                     reRender: this.reRenderList})
-                            }
+                                }else if(question.type === 'TF'){
+                                this.props.navigation.navigate('TrueOrFalseQuestionEditor',
+                                    {examId: this.state.examId,
+                                    questionId: question.id,
+                                    isTrue:question.isTrue,
+                                    title: question.title,
+                                    description: question.description,
+                                    points: question.points,
+                                    reRender: this.reRenderList})
+                                }
                             }}
                             key={index}
                             title={question.title}/>))}
