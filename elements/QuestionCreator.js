@@ -6,6 +6,7 @@ import QuestionTypePicker from './QuestionTypePicker'
 import MultipleChoiceQuestionWidget from "./MultipleChoiceQuestionWidget";
 import EssayQuestionWidget from "./EssayQuestionWidget";
 import FillInTheBlanksQuestionWidget from "./FillInTheBlanksQuestionWidget";
+import TrueOrFalseQuestionWidget from "./TrueOrFalseQuestionWidget";
 
 class QuestionCreator extends Component {
     static navigationOptions = {title: 'QuestionCreator'};
@@ -55,6 +56,9 @@ class QuestionCreator extends Component {
         }else if(questionType === 'FB'){
             return <FillInTheBlanksQuestionWidget navigation={this.props.navigation}
                                                   examId={this.state.examId}/>
+        }else if(questionType === 'TF'){
+            return <TrueOrFalseQuestionWidget navigation={this.props.navigation}
+                                              examId={this.state.examId}/>
         }
     }
 
