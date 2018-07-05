@@ -14,6 +14,7 @@ import ExamEditor from './elements/ExamEditor'
 import QuestionCreator from  './elements/QuestionCreator'
 import MultipleChoiceQuestionEditor from './elements/MultipleChoiceQuestionEditor'
 import EssayQuestionEditor from './elements/EssayQuestionEditor'
+import FillInTheBlanksQuestionEditor from './elements/FillInTheBlanksQuestionEditor'
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -49,7 +50,8 @@ const App = createStackNavigator({
     ExamEditor,
     QuestionCreator,
     MultipleChoiceQuestionEditor,
-    EssayQuestionEditor
+    EssayQuestionEditor,
+    FillInTheBlanksQuestionEditor
 });
 
 export default App;

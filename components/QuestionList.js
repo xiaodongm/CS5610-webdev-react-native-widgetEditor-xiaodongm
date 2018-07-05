@@ -70,7 +70,16 @@ class QuestionList extends Component {
                                         description: question.description,
                                         points: question.points,
                                         reRender: this.reRenderList})
-                                }
+                                }else if (question.type === 'FB'){
+                                this.props.navigation.navigate('FillInTheBlanksQuestionEditor',
+                                    {examId: this.state.examId,
+                                    questionId: question.id,
+                                    variables:question.variables,
+                                    title: question.title,
+                                    description: question.description,
+                                    points: question.points,
+                                    reRender: this.reRenderList})
+                            }
                             }}
                             key={index}
                             title={question.title}/>))}
