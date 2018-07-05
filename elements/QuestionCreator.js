@@ -5,6 +5,7 @@ import BaseQuestionService from '../services/BaseQuestionService'
 import QuestionTypePicker from './QuestionTypePicker'
 import MultipleChoiceQuestionWidget from "./MultipleChoiceQuestionWidget";
 import EssayQuestionWidget from "./EssayQuestionWidget";
+import FillInTheBlanksQuestionWidget from "./FillInTheBlanksQuestionWidget";
 
 class QuestionCreator extends Component {
     static navigationOptions = {title: 'QuestionCreator'};
@@ -48,10 +49,12 @@ class QuestionCreator extends Component {
         if(questionType === 'MC'){
             return <MultipleChoiceQuestionWidget navigation={this.props.navigation}
                                                  examId={this.state.examId}/>
-
         }else if(questionType === 'ES'){
-            return<EssayQuestionWidget navigation={this.props.navigation}
+            return <EssayQuestionWidget navigation={this.props.navigation}
                                        examId={this.state.examId}/>
+        }else if(questionType === 'FB'){
+            return <FillInTheBlanksQuestionWidget navigation={this.props.navigation}
+                                                  examId={this.state.examId}/>
         }
     }
 
