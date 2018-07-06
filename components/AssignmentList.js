@@ -53,7 +53,7 @@ class AssignmentList extends Component {
                 {this.state.assignments.map(
                     (assignment, index) => (
                         <ListItem
-                            rightIcon={<Icon name='delete' size={30} color='red'
+                            rightIcon={<Icon name='delete-forever' size={30} color='red'
                                         onPress={() => {this.deleteAssignment(assignment.id)}}/>}
                             onPress={() => this.props.navigation
                                 .navigate('AssignmentEditor',

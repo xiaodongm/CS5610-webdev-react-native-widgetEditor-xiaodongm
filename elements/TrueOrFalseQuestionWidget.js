@@ -51,7 +51,7 @@ class TrueOrFalseQuestionWidget extends Component {
     render(){
         return(
             <ScrollView>
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#ebfff2'}}>
                     <FormLabel>Question Title</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({title : text})}/>
@@ -60,7 +60,7 @@ class TrueOrFalseQuestionWidget extends Component {
                     </FormValidationMessage>
                 </View>
 
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#ebfff2'}}>
                     <FormLabel>Question Description</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({description: text})}
@@ -71,7 +71,7 @@ class TrueOrFalseQuestionWidget extends Component {
                 </View>
 
 
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#ebfff2'}}>
                     <FormLabel>Question Points</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({points: text})}/>
@@ -80,28 +80,14 @@ class TrueOrFalseQuestionWidget extends Component {
                     </FormValidationMessage>
                 </View>
 
-                {/*<View style={{borderRadius:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>*/}
-                    {/*<FormLabel>Question Choice</FormLabel>*/}
-                    {/*<FormInput onChangeText={*/}
-                        {/*text => this.updateForm({choiceText: text})}/>*/}
-                    {/*<FormValidationMessage>*/}
-                        {/*Choice is required*/}
-                    {/*</FormValidationMessage>*/}
-
-                    {/*<Button title='Add Choice'*/}
-                            {/*onPress={() => {this.addChoice(this.state.choiceText)}}*/}
-                            {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>*/}
-                {/*</View>*/}
-
-
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
 
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
                 <View style={{flexDirection: 'row',
                     justifyContent: 'space-between',
                     margin: 10}}>
-                    <Text>{this.state.title}</Text>
-                    <Text>{this.state.points}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.title}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.points}</Text>
                 </View>
 
                 <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
@@ -115,29 +101,8 @@ class TrueOrFalseQuestionWidget extends Component {
                           onPress={() => this.setState({isTrue: false})}
                           title={'false'}
                           checked={false === this.state.isTrue}/>
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
-                {/*{this.state.options.map(*/}
-                    {/*(choice, index) => (*/}
-                        {/*<View key={index}*/}
-                              {/*style={{flexDirection : 'row'}}>*/}
-                            {/*<View width={370}>*/}
-                                {/*<CheckBox title={choice}*/}
-                                          {/*uncheckedIcon='circle-o'*/}
-                                          {/*checkedIcon='dot-circle-o'*/}
-                                          {/*containerStyle={this.state.correctOption === choice && {backgroundColor: 'lightskyblue'}}*/}
-                                          {/*checked={this.state.correctOption === choice}*/}
-                                          {/*onPress={() => {*/}
-                                              {/*this.setState({correctOption: choice});*/}
-                                          {/*}}/>*/}
-                            {/*</View>*/}
-                            {/*<Icon name='delete-forever' size={30}*/}
-                                  {/*onPress={() => {this.deleteChoice(index)}}/>*/}
-                        {/*</View>*/}
-                    {/*)*/}
-                {/*)}*/}
-
-
-                <Text style={{marginLeft:10, marginBottom: 10}}>_______________________________________________________________</Text>
                 <View style={{ flexDirection: 'row', marginBottom: 20}}>
                     <Button title='Cancel'
                             onPress={() => {this.props.navigation.goBack()}}
@@ -156,12 +121,6 @@ class TrueOrFalseQuestionWidget extends Component {
             </ScrollView>
         )
     }
-
-
-
-
-
-
 
 }
 export default TrueOrFalseQuestionWidget;

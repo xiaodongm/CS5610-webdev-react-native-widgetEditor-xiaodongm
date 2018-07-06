@@ -97,57 +97,23 @@ class ExamEditor extends Component {
                             this.props.navigation.goBack()}}
                         buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>
 
-                {/*<Button title='Add Question'*/}
-                        {/*onPress={() => this.props.navigation*/}
-                            {/*.navigate('QuestionCreator', {examId: this.props.navigation.getParam('examId')})}*/}
-                        {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>*/}
-
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
 
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
                 <View style={{flexDirection: 'row',
                     justifyContent: 'space-between',
                     margin: 10}}>
-                    <Text>{this.state.title}</Text>
-                    <Text>{this.state.points}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.title}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.points}</Text>
                 </View>
 
                 <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
-
-                {/*<Text style={{marginLeft:10, marginTop:10}}>Essay Answer</Text>*/}
-                {/*<TextInput multiline={true}*/}
-                {/*style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 80}}/>*/}
-
-                {/*<Text style={{marginLeft:10, marginTop: 10}}>Upload a file</Text>*/}
-                {/*<TextInput style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 40}}*/}
-                {/*placeholder='  No file chosen'>*/}
-                {/*/!*<Button title='Upload'/>*!/*/}
-                {/*</TextInput>*/}
-
-                {/*<Text style={{marginLeft:10, marginTop: 10}}>Submit a link</Text>*/}
-                {/*<TextInput style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 40}}/>*/}
-
-                {/*<View style={{ flexDirection: 'row'}}>*/}
-                {/*<Button title='Cancel'*/}
-                {/*buttonStyle={{backgroundColor: 'red', borderRadius: 5}}/>*/}
-                {/*<Button title='Submit'*/}
-                {/*buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>*/}
-                {/*</View>*/}
                 <View>
                 <QuestionList navigation={this.props.navigation}
                               examId={this.props.navigation.getParam('examId')}/>
                 </View>
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
-                {/*<Button title='Update and Save'*/}
-                        {/*onPress={() => {*/}
-                            {/*this.updateExam(this.state.examId,*/}
-                                {/*{title:this.state.title,*/}
-                                    {/*description: this.state.description,*/}
-                                    {/*points: this.state.points,*/}
-                                    {/*widgetType: this.state.widgetType});*/}
-                            {/*this.props.navigation.goBack()}}*/}
-                        {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop: 10, marginBottom: 10}}/>*/}
             </ScrollView>
         )
     }

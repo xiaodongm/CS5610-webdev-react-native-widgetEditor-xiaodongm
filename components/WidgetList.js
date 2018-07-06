@@ -22,9 +22,6 @@ class WidgetList extends Component {
                 widgetType: 'assignment',
             }
         };
-        // this.assignmentService = AssignmentService.instance;
-        // this.createAssignment = this.createAssignment.bind(this);
-
     }
     componentDidMount() {
         const {navigation} = this.props;
@@ -34,32 +31,10 @@ class WidgetList extends Component {
         });
     }
 
-    // createAssignment() {
-    //     this.assignmentService
-    //         .createAssignment(this.state.topicId, this.state.assignment);
-    // }
-
-
 
     render() {
         return(
             <ScrollView style={{padding: 15}}>
-                {/*<Text h3>Other Widgets</Text>*/}
-                {/*<Button title="Add Assignment"*/}
-                        {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10}}*/}
-                        {/*onPress={() =>{ this.createAssignment();*/}
-                        {/*this.props.navigation.navigate('AssignmentWidget') }}*/}
-                        {/*topicId={this.state.topicId}/>*/}
-                {/*<Button title="Add Exam"*/}
-                        {/*buttonStyle={{backgroundColor: 'green', borderRadius: 10, marginTop : 10}}/>*/}
-                {/*{this.state.widgets.map(*/}
-                    {/*(widget, index) => (*/}
-                        {/*<ListItem*/}
-                            {/*onPress={() => this.props.navigation*/}
-                                {/*.navigate("QuestionList", {examId: widget.id})}*/}
-                            {/*key={index}*/}
-                            {/*// subtitle={widget.description}*/}
-                            {/*title={widget.title}/>))}*/}
                             <AssignmentList navigation={this.props.navigation}
                                             topicId={this.props.navigation.getParam('topicId')}/>
                             <ExamList navigation={this.props.navigation}

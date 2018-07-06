@@ -58,7 +58,7 @@ class EssayQuestionEditor extends Component {
     render(){
         return(
             <ScrollView>
-                <View style={{borderRadius:10, paddingBottom:10, margin:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, margin:10, backgroundColor:'#fce9ff'}}>
                     <FormLabel>Question Title</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({title : text})}
@@ -68,7 +68,7 @@ class EssayQuestionEditor extends Component {
                     </FormValidationMessage>
                 </View>
 
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#fce9ff'}}>
                     <FormLabel>Question Description</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({description: text})}
@@ -80,7 +80,7 @@ class EssayQuestionEditor extends Component {
                 </View>
 
 
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#fce9ff'}}>
                     <FormLabel>Question Points</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({points: text})}
@@ -92,22 +92,23 @@ class EssayQuestionEditor extends Component {
 
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
+
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
                 <View style={{flexDirection: 'row',
                     justifyContent: 'space-between',
                     margin: 10}}>
-                    <Text>{this.state.title}</Text>
-                    <Text>{this.state.points}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.title}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.points}</Text>
                 </View>
 
                 <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
 
                 <TextInput multiline={true}
-                           style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 100}}/>
+                           style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 100, borderColor: 'black', borderWidth: 1}}/>
 
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
-                <Text style={{marginLeft:10, marginBottom: 10}}>_______________________________________________________________</Text>
                 <View style={{ flexDirection: 'row', marginBottom: 20}}>
                     <Button title='Cancel'
                             onPress={() => {this.props.navigation.goBack()}}

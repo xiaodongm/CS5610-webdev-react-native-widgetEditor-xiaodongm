@@ -89,29 +89,32 @@ class AssignmentWidget extends Component {
                 </View>
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
                 <View style={{flexDirection: 'row',
                     justifyContent: 'space-between',
                     margin: 10}}>
-                    <Text>{this.state.title}</Text>
-                    <Text>{this.state.points}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.title}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.points}</Text>
                 </View>
 
-                <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
+                <Text style={{marginLeft:10, marginTop: 10, marginRight:10}}>{this.state.description}</Text>
 
-                <Text style={{marginLeft:10, marginTop:10}}>Essay Answer</Text>
+                <Text style={{marginLeft:10, marginTop:10, fontWeight:'bold'}}>Essay Answer</Text>
                 <TextInput multiline={true}
-                           style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 80}}/>
+                           style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 100, borderColor: 'black', borderWidth: 1}}/>
 
-                <Text style={{marginLeft:10, marginTop: 10}}>Upload a file</Text>
-                <TextInput style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 40}}
+                <View style={{flexDirection: 'row'}}>
+                    <Text style={{marginLeft:10, marginTop: 10, fontWeight:'bold'}}>Upload a file</Text>
+                    <Button title='Choose file'
+                            buttonStyle={{borderRadius:10}}/>
+                </View>
+                <TextInput style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 40, borderColor: 'black', borderWidth: 1}}
                            placeholder='  No file chosen'>
-                    {/*<Button title='Upload'/>*/}
                 </TextInput>
 
-                <Text style={{marginLeft:10, marginTop: 10}}>Submit a link</Text>
-                <TextInput style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 40}}/>
+                <Text style={{marginLeft:10, marginTop: 10, fontWeight:'bold'}}>Submit a link</Text>
+                <TextInput style={{backgroundColor: 'white', margin: 10, borderRadius: 5, height: 40, borderColor: 'black', borderWidth: 1}}/>
 
                 <View style={{ flexDirection: 'row'}}>
                     <Button title='Cancel'
@@ -119,8 +122,8 @@ class AssignmentWidget extends Component {
                     <Button title='Submit'
                             buttonStyle={{backgroundColor: 'blue', borderRadius: 5}}/>
                 </View>
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
                 <Button title='Update and Save'
                         onPress={() => {
                             this.updateAssignment(this.state.assignmentId,

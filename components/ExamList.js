@@ -53,7 +53,7 @@ class ExamList extends Component {
                 {this.state.exams.map(
                     (exam, index) => (
                         <ListItem
-                            rightIcon={<Icon name='delete' size={30} color='red'
+                            rightIcon={<Icon name='delete-forever' size={30} color='red'
                                              onPress={() => {this.deleteExam(exam.id)}}/>}
                             onPress={() => this.props.navigation
                                 .navigate('ExamEditor',

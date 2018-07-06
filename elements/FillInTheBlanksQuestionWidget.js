@@ -90,7 +90,7 @@ class FillInTheBlanksQuestionWidget extends Component {
                           key={index}>
                         <Text h4>{front}</Text>
                         <TextInput
-                            style={{borderRadius: 5, width: 100}}
+                            style={{borderRadius: 5, width: 80, borderColor: 'black', borderWidth: 1}}
                             backgroundColor="white"
                             multiline={true}/>
                         <Text h4>{back}</Text>
@@ -104,11 +104,10 @@ class FillInTheBlanksQuestionWidget extends Component {
     }
 
 
-
     render(){
         return(
             <ScrollView>
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#ffe2d1'}}>
                     <FormLabel>Question Title</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({title : text})}/>
@@ -117,7 +116,7 @@ class FillInTheBlanksQuestionWidget extends Component {
                     </FormValidationMessage>
                 </View>
 
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#ffe2d1'}}>
                     <FormLabel>Question Description</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({description: text})}
@@ -128,7 +127,7 @@ class FillInTheBlanksQuestionWidget extends Component {
                 </View>
 
 
-                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, paddingBottom:10, marginBottom:10, marginLeft:10, marginRight:10, backgroundColor:'#ffe2d1'}}>
                     <FormLabel>Question Points</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({points: text})}/>
@@ -137,7 +136,7 @@ class FillInTheBlanksQuestionWidget extends Component {
                     </FormValidationMessage>
                 </View>
 
-                <View style={{borderRadius:10, marginLeft:10, marginRight:10, backgroundColor:'#f7ffe9'}}>
+                <View style={{borderRadius:10, marginLeft:10, marginRight:10, backgroundColor:'#ffe2d1'}}>
                     <FormLabel>Question Variable</FormLabel>
                     <FormInput onChangeText={
                         text => this.updateForm({variableText: text})}/>
@@ -162,42 +161,20 @@ class FillInTheBlanksQuestionWidget extends Component {
 
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
 
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
                 <View style={{flexDirection: 'row',
                     justifyContent: 'space-between',
                     margin: 10}}>
-                    <Text>{this.state.title}</Text>
-                    <Text>{this.state.points}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.title}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.points}</Text>
                 </View>
 
                 <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
 
                 {this.renderVariablesPreview()}
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
-                {/*{this.state.variables.map(*/}
-                {/*(variable, index) => (*/}
-                    {/*<View key={index}*/}
-                          {/*style={{flexDirection : 'row'}}>*/}
-                        {/*<View style={{backgroundColor: 'white', marginLeft:10, marginTop: 10}}>*/}
-                            {/*/!*<CheckBox title={choice}*!/*/}
-                            {/*/!*uncheckedIcon='circle-o'*!/*/}
-                            {/*/!*checkedIcon='dot-circle-o'*!/*/}
-                            {/*/!*containerStyle={this.state.correctOption === choice && {backgroundColor: 'lightskyblue'}}*!/*/}
-                            {/*/!*checked={this.state.correctOption === choice}*!/*/}
-                            {/*/!*onPress={() => {*!/*/}
-                            {/*/!*this.setState({correctOption: choice});*!/*/}
-                            {/*/!*}}/>*!/*/}
-                            {/*<Text h4>{variable}</Text>*/}
-                        {/*</View>*/}
-                        {/*<Icon name='delete-forever' size={30}*/}
-                              {/*onPress={() => {this.deleteVariable(index)}}/>*/}
-                    {/*</View>*/}
-                {/*)*/}
-                {/*)}*/}
-
-
-                <Text style={{marginLeft:10, marginBottom: 10}}>_______________________________________________________________</Text>
                 <View style={{ flexDirection: 'row', marginBottom: 20}}>
                     <Button title='Cancel'
                             onPress={() => {this.props.navigation.goBack()}}

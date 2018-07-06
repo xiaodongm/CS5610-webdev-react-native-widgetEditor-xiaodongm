@@ -124,13 +124,13 @@ class MultipleChoiceQuestionEditor extends Component {
 
 
                 <Text h4 style={{marginLeft:10, marginTop: 20}}>Preview</Text>
-                <Text style={{marginLeft:10}}>_______________________________________________________________</Text>
 
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
                 <View style={{flexDirection: 'row',
                     justifyContent: 'space-between',
                     margin: 10}}>
-                    <Text>{this.state.title}</Text>
-                    <Text>{this.state.points}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.title}</Text>
+                    <Text style={{fontWeight:'bold'}}>{this.state.points}</Text>
                 </View>
 
                 <Text style={{marginLeft:10, marginTop: 10}}>{this.state.description}</Text>
@@ -155,8 +155,8 @@ class MultipleChoiceQuestionEditor extends Component {
                     )
                 )}
 
+                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, margin:10}}/>
 
-                <Text style={{marginLeft:10, marginBottom: 10}}>_______________________________________________________________</Text>
                 <View style={{ flexDirection: 'row', marginBottom: 20}}>
                     <Button title='Cancel'
                             onPress={() => {this.props.navigation.goBack()}}

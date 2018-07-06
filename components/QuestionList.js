@@ -64,11 +64,9 @@ class QuestionList extends Component {
                 {this.state.questions.map(
                     (question, index) => (
                         <ListItem
-                            rightIcon={<Icon name='delete' size={30} color='red'
+                            rightIcon={<Icon name='delete-forever' size={30} color='red'
                                              onPress={() => {this.deleteQuestion(question.id)}}/>}
-
                             leftIcon={this.renderLeftIcon(question.type)}
-
                             onPress={() => {if(question.type === 'MC')
                                 {this.props.navigation.navigate('MultipleChoiceQuestionEditor',
                                     {examId: this.state.examId,
@@ -116,8 +114,6 @@ class QuestionList extends Component {
             </ScrollView>
         )
     }
-
-
 
 }
 
